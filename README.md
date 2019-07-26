@@ -1,7 +1,9 @@
 # jQuery accessible autocomplete list
-This jQuery plugin will transform and enhance a simple text input with a datalist into a wonderful and shiny input with autocomplete, and accessible.
+Fork from Nicolas Hoffmann's amazing plugin.
 
-The demo is here: https://a11y.nicolas-hoffmann.net/autocomplete-list/
+The main change is that it's usable like a function and you can use dynamic datas (from ajax or whatever) to fill the datalist.
+
+See the index file for a demo.
 
 ## How it works
 
@@ -28,18 +30,10 @@ First, add a class js-combobox on an input with a working datalist:
 ```html
 <input type="text" name="mysuper_field" id="id_mysuper_field" class="js-combobox" list="beers" data-combobox-prefix-class="combobox" />
  <datalist id="beers">
-  <option value="Meteor">
-  <option value="Pils">
-  <option value="Kronenbourg">
-  <option value="Kronenbourg 2 (for test)">
-  <option value="Kronenbourg 3 (for test)">
-  <option value="Grimbergen">
  </datalist>
 ```
 
-Then download the plugin and use jQuery of course. This plugin is also available on NPMjs.com and can be installed using ```npm i jquery-accessible-autocomplete-list-aria```: https://www.npmjs.com/package/jquery-accessible-autocomplete-list-aria
-
-You may also get it from Bower: ```bower install jquery-accessible-autocomplete-list-aria```.
+Then download the plugin and use jQuery of course.
 
 You may use some options, so have a look at plugin options. 
 
@@ -47,7 +41,7 @@ You may use some options, so have a look at plugin options.
 
 At the beginning of the plugin, a global configuration is available:
 ```js
-var $js_combobox = $('.js-combobox'),
+var $js_combobox = selector,
  $body = $('body'),
  default_text_help = 'Use tabulation (or down) key to access and browse suggestions after input. Confirm your choice with enter key, or esc key to close suggestions box.',
  default_class_for_invisible_text = 'invisible',
@@ -56,11 +50,11 @@ var $js_combobox = $('.js-combobox'),
  suggestion_word = 'suggestion',
  suggestion_word_plural = 'suggestions',
  button_clear_title = 'clear this field',
- button_clear_text = 'X',
- case_sensitive = 'yes',
+ button_clear_text = '&times',
+ case_sensitive = 'no',
  min_length = 0, 
  limit_number_suggestions = 666,
- search_option = 'beginning', // or 'containing'
+ search_option = 'containing', // or 'beginning'
  see_more_text = 'See more results…',
  tablo_suggestions = [];
 ```

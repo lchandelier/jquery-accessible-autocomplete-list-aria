@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Autocomplete demo</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="jquery-accessible-autocomplete-list-aria.js"></script>
+    <link rel="stylesheet" href="autocomplete.css">
+    <script>
+        
+        (function ($) {
+            $(document).ready(function () { 
+                var animalArray = ["Cat","Unicorn (let me dream)","Dog", "Otter"];
+                $.each(animalArray, function(i, item) {
+                    $("#animalResult").append($("<option>").attr('value', item).text(item));
+                });
+                
+                autocompleteField($('#animal'));
+            });
+        })(jQuery);
+    </script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<form action="#" method="post">
+			<label for="animal">
+				What is your favourite animal? (start with an "o" to have multiple results)
+			</label>
+			<input type="text" id="animal" name="animal" 
+					class="js-combobox" list="animalResult" data-combobox-prefix-class="combobox" >
+			<datalist id="animalResult"></datalist>
+		</form>
+	</div>
+</body>
+</html>
